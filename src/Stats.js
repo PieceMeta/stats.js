@@ -2,12 +2,13 @@
  * @author mrdoob / http://mrdoob.com/
  */
 
-var Stats = function (css = undefined) {
+var Stats = function (cssClass, cssString) {
 
 	var mode = 0;
 
 	var container = document.createElement( 'div' );
-	container.style.cssText = css || 'position:fixed;top:0;left:0;cursor:pointer;opacity:0.9;z-index:10000';
+	container.style.cssText = cssString || 'position:fixed;top:0;left:0;cursor:pointer;opacity:0.9;z-index:10000';
+  container.className = cssClass
 	container.addEventListener( 'click', function ( event ) {
 
 		event.preventDefault();

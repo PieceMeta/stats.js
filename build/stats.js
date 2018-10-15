@@ -8,12 +8,13 @@
  * @author mrdoob / http://mrdoob.com/
  */
 
-var Stats = function () {
+var Stats = function (cssClass, cssString) {
 
 	var mode = 0;
 
 	var container = document.createElement( 'div' );
-	container.style.cssText = 'position:fixed;top:0;left:0;cursor:pointer;opacity:0.9;z-index:10000';
+	container.style.cssText = cssString || 'position:fixed;top:0;left:0;cursor:pointer;opacity:0.9;z-index:10000';
+  container.className = cssClass;
 	container.addEventListener( 'click', function ( event ) {
 
 		event.preventDefault();
@@ -80,7 +81,7 @@ var Stats = function () {
 
 			msPanel.update( time - beginTime, 200 );
 
-			if ( time > prevTime + 1000 ) {
+			if ( time >= prevTime + 1000 ) {
 
 				fpsPanel.update( ( frames * 1000 ) / ( time - prevTime ), 100 );
 
